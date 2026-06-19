@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti</title>
+    <style>
+        /* Estilos generales con imagen de fondo */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            
+            /* --- CONFIGURACIÓN DE LA IMAGEN DE FONDO --- */
+            background-image: url('Gemini_Generated_Image_8vievn8vievn8vie.png'); /* Tu imagen local de tortugas */
+            background-size: cover;             
+            background-position: center;        
+            background-repeat: no-repeat;       
+            background-attachment: fixed;       
+        }
+
+        /* Contenedor de la carta */
+        .card {
+            background-color: rgba(255, 255, 255, 0.93); /* Un toque más opaco para leer mejor */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            margin: 20px auto;
+            backdrop-filter: blur(5px); 
+            transition: all 0.5s ease-in-out; /* Transición para el cambio de vista */
+        }
+
+        /* Título principal */
+        h1 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #4a148c; 
+            margin-bottom: 24px;
+        }
+
+        /* Texto de la carta */
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #212529; 
+            text-align: left; 
+            margin-bottom: 20px;
+        }
+
+        /* Divisor sutil */
+        .divider {
+            height: 2px;
+            background-color: #e9ecef;
+            margin: 30px 0;
+        }
+
+        /* Botones de acción elegantes */
+        .btn-custom {
+            display: inline-block;
+            background-color: #6a1b9a; 
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #4a148c; 
+        }
+
+        .btn-custom:active {
+            transform: scale(0.98); 
+        }
+
+        /* Estilos específicos de la sección del Cuy (Oculta al inicio) */
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .cuy-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Estilo para los corazones que caen */
+        .heart {
+            position: fixed;
+            top: -10vh;
+            font-size: 24px;
+            color: #ff4081;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear forwards;
+            z-index: 9999;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Ajustes para pantallas pequeñas (Teléfonos) */
+        @media (max-width: 480px) {
+            .card { padding: 25px; }
+            h1 { font-size: 22px; }
+            p { font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- VISTA 1: LA CARTA DE DISCULPAS -->
+    <div class="card" id="vistaCarta">
+        <h1>Hola, Valentina</h1>
+        
+        <p>Quería pedirte disculpas de una manera diferente. Sé que quizás provoqué una situación incómoda para ti de alguna manera, de forma totalmente innecesaria y no pensé en las consecuencias de mis acciones. Me siento realmente mal por haberte hecho sentir así, y quiero que sepas que no fue mi intención en absoluto.</p>
+       
+        <p>Me importa mucho nuestro bienestar y lamento haber causado un mal rato por no pensar las cosas antes de actuar. Mi intención con esta página no es presionarte, sino dejarte este espacio para demostrarte que reconozco mi error.</p>
+
+        <p>Cuando estés lista y tengas un momento libre, me gustaría que podamos conversar.</p>
+
+        <p>Disculpa por ser un idiota contigo.</p>
+
+        <div class="divider"></div>
+
+        <!-- Este botón ahora cambia la vista hacia el cuy -->
+        <button class="btn-custom" onclick="mostrarCuy()">Continuar</button>
+    </div>
+
+    <!-- VISTA 2: EL CUY Y LOS CORAZONES (Oculta inicialmente) -->
+    <div class="card hidden" id="vistaCuy">
+        <h1>Un detalle para alegrarte el día</h1>
+        
+        <!-- Imagen local del cuy comiendo - CORREGIDO -->
+        <img src="Gemini_Generated_Image_ww6rx3ww6rx3ww6r.png" alt="Cuy comiendo" class="cuy-img">
+        
+        <p style="text-align: center; margin-bottom: 25px;">Sé que es tu animal favorito, espero que te guste.</p>
+
+        <!-- Botón para lanzar corazones -->
+        <button class="btn-custom" onclick="crearCorazones()" style="background-color: #ff4081; margin-bottom: 15px; width: 100%;">
+            💖 Animar al cuy
+        </button>
+
+        <div class="divider" style="margin: 20px 0;"></div>
+
+        <!-- Botón de WhatsApp Final -->
+        <a href="https://wa.me/584125173073?text=Hola%20Luis,%20vi%20la%20p%C3%A1gina.%20Hablemos." class="btn-custom" style="background-color: #212529; width: 88%;">
+            Hablar cuando estés lista
+        </a>
+    </div>
+
+    <!-- SCRIPT INTERACTIVO EN JAVASCRIPT -->
+    <script>
+        // Función para cambiar de la carta al cuy con efecto suave
+        function mostrarCuy() {
+            const carta = document.getElementById('vistaCarta');
+            const cuySection = document.getElementById('vistaCuy');
+            
+            carta.style.opacity = '0';
+            setTimeout(() => {
+                carta.style.display = 'none';
+                cuySection.style.display = 'block';
+                setTimeout(() => {
+                    cuySection.style.opacity = '1';
+                }, 50);
+            }, 500);
+        }
+
+        // Función mágica para hacer caer los corazones
+        function crearCorazones() {
+            const cantidad = 20; // Cuántos corazones caen por cada clic
+            
+            for (let i = 0; i < cantidad; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerText = ['💖', '💝', '💕', '💗', '❤️'][Math.floor(Math.random() * 5)]; // Variedad de corazones
+                
+                // Posición horizontal aleatoria por toda la pantalla
+                heart.style.left = Math.random() * 100 + "vw";
+                
+                // Velocidad de caída aleatoria (entre 2 y 4 segundos)
+                heart.style.animationDuration = Math.random() * 2 + 2 + "s";
+                
+                // Tamaños ligeramente variados para dar profundidad
+                heart.style.fontSize = Math.random() * 15 + 18 + "px";
+                
+                document.body.appendChild(heart);
+                
+                // Borrar el elemento del código cuando termine la animación para no saturar el navegador
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }
+        }
+    </script>
+
+</body>
+</html>
